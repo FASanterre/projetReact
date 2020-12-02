@@ -137,7 +137,7 @@ const validationSchema = yup.object().shape({
   }
 }*/
 
-async function chargerJeton(thisRef){
+async function chargerUtilisateur(thisRef){
   if( thisRef.state.jeton != ""){
     alert("charger jeton")
 
