@@ -19,11 +19,11 @@ const validationSchema = yup.object().shape({
   nom: yup
     .string()
     .required('Veuillez entrer votre nom.')
-    .label('Nom'),
+    .label('nom'),
   mdp: yup
     .string()
     .required('Veuillez entrer votre mot de passe.')
-    .label('Mot de passe')
+    .label('mdp')
 })
 
 /*export default class ExempleDeFetch extends React.Component{
@@ -137,9 +137,9 @@ const validationSchema = yup.object().shape({
   }
 }*/
 
-async function chargerUtilisateur(thisRef){
+async function chargerJeton(thisRef){
   if( thisRef.state.jeton != ""){
-    alert("charger utilisateur")
+    alert("charger jeton")
 
     var url = "http://127.0.0.1:5000/api/jeton_user/" + thisRef.state.jeton
 
@@ -172,7 +172,7 @@ export default class ExFormix extends React.Component{
     }
   }
 
-  demarrerSession(valeurs,thisRef){
+  chargerJeton(valeurs,thisRef){
     var nom_mdp = valeurs["nom"] + ":" + valeurs["mdp"];
     var nom_mdp_base64 = btoa(nom_mdp);
 
@@ -187,7 +187,7 @@ export default class ExFormix extends React.Component{
     };
     alert(nom_mdp)
 
-    var reponse = getJson(url,obj,thisRef,"Utilisateur et mot de passe")
+    var reponse = getJson(url, obj, thisRef, "Utilisateur et mot de passe valides", "jeton")
   }
 
   quitterSession(thisRef){
@@ -209,7 +209,7 @@ export default class ExFormix extends React.Component{
                   <Formik
                   initialValues={{ nom: '', mdp:''}}
                   onSubmit={(values, actions) =>{
-                    this.demarrerSession(values, this)
+                    this.chargerJeton(values, this)
                   }}
 
                   validationSchema={validationSchema}
@@ -248,7 +248,7 @@ export default class ExFormix extends React.Component{
             <Text style={styles.flash}>Utilisateur : {this.state.utilisateur.nom}</Text>
             <Text style={styles.jeton}>Jeton : {this.state.jeton}</Text>
             <TouchableOpacity style={styles.loginBtn}>
-              <Text style={styles.loginText} onPress={ () => this.quitterSession(this)}></Text>
+              <Text style={styles.loginText} onPress={ () => this.quitterSession(this)}>Quitter la session</Text>
             </TouchableOpacity>
           </View>
         )
