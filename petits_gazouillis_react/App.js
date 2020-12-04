@@ -347,7 +347,7 @@ async function getJson(url, obj, thisRef, message, etat){
     else {
       thisRef.setState({flash: reponseJson.erreur})
     }
-    return (reponseJson)
+    return (reponseJson) 
   } 
   catch(erreur) {
     console.error(erreur)
