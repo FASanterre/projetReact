@@ -21,7 +21,7 @@ export default class PetitGazouillis extends React.Component{
   constructor(props){
       super(props);
 
-      this.state ={jeton:"", utilisateur:"", layout:"login"};
+      this.state ={jeton:"", utilisateur:"", layout:"login", utilisateurs:"", publications:""};
 
       this.setStateParent = Projet.setStateParent.bind(this)
       this.afficherStateParent = Projet.afficherStateParent.bind(this)

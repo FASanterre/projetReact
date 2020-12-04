@@ -20,6 +20,11 @@ export const styles = StyleSheet.create({
     height:256,
     margin:50
   },
+  miniAvatar:{
+    width:100,
+    height:100,
+    margin:20
+  },
   flash:{
     fontSize:50,
     color:"black"
@@ -65,12 +70,16 @@ export const styles = StyleSheet.create({
   }
 })
 
+export const etiquettes={
+  ENCHARGEMENT: "CHARGEMENT"
+}
+
 export function setStateParent(etat, valeur){
   this.setState({[etat]: valeur})
 }
 
 export function afficherStateParent(etat){
-  alert("afficher parent etat:" + etat + " valeur:" + this.state[state])
+  alert("afficher parent etat:" + etat + " valeur:" + this.state[etat])
 }
 
 export function naviguer(destination){
@@ -123,9 +132,9 @@ export async function chargerUtilisateur(thisRef){
     }
   }
 
-  export async function chargerTousLesUtilisateurs(){
+  export async function chargerTousLesUtilisateurs(thisRef){
     if( this.props.jeton != ""){
-      alert("charger liste des utilisateurs"  + this.props.jeton)
+      alert("charger liste des utilisateurs "  + this.props.jeton)
   
       var url = "http://127.0.0.1:5000/api/utilisateurs"
   
@@ -137,13 +146,13 @@ export async function chargerUtilisateur(thisRef){
           'Authorization': 'Bearer ' + this.props.jeton
         },
       };
-      var reponse = getJson(url,obj, this, "Utilisateurs chargés.", "utilisateurs")
+      var reponse = getJson(url, obj, thisRef, "Utilisateurs chargés.", "utilisateurs")
     }else{
       this.setState({flash:"impossible de charger la liste des utilisateurs. Pas de jeton."})
     }
   }
 
-  export async function chargerToutesLesPublications(){
+  export async function chargerToutesLesPublications(thisRef){
     if( this.props.jeton != ""){
       alert("charger liste des publications")
   
@@ -157,25 +166,24 @@ export async function chargerUtilisateur(thisRef){
           'Authorization': 'Bearer ' + this.props.jeton
         },
       };
-      var reponse = getJson(url,obj, this, "Publications chargées.", "publications")
+      var reponse = getJson(url,obj, thisRef, "Publications chargées.", "publications")
     }else{
       this.setState({flash:"impossible de charger la liste des publications. Pas de jeton."})
     }
   }
 
   export async function getJson(url, obj, thisRef, message, etat){
-    
     try{
       thisRef.setState({enChargement: true})
       thisRef.setState({flash:""})
-      //thisRef.setState({[etat] :""})
+      thisRef.setState({[etat] :etiquettes.ENCHARGEMENT})
       let reponse = await fetch(url, obj)
       let reponseJson = await reponse.json()
       thisRef.setState({enChargement :false})
       if(typeof reponseJson.erreur === 'undefined'){
         thisRef.setState({[etat] :reponseJson[etat]})
         thisRef.setState({flash :message})
-        alert("OK " + etat)
+        alert(reponseJson[etat] + " " + etat)
       }
       else {
         thisRef.setState({flash: reponseJson.erreur})

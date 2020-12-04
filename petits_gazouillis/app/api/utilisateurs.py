@@ -19,7 +19,7 @@ def get_utilisateur(id):
 def get_utilisateurs():
     page = request.args.get('page',1,type=int)
     par_page = min(request.args.get('par_page',10,type=int), 100)
-    data= Utilisateur.to_collection_dict(Utilisateur.query, page, par_page, 'api.get_utilisateurs')
+    data= Utilisateur.to_collection_dict(Utilisateur.query, page, par_page, 'api.get_utilisateurs', "utilisateurs")
 
     return jsonify(data)
 

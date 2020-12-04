@@ -17,19 +17,26 @@ import ListePublications from "../../Components/Listes/ListePublications.js"
 export default class Accueil extends React.Component{
     constructor(props){
         super(props)
-        this.state={premierefois:true, flash:"",utilisateurs:null, publications:null}
+        this.state={premierefois:true, flash:"", utilisateurs:null, publications:null}
+        this.uneFois = true;
         this.chargerTousLesUtilisateurs = Projet.chargerTousLesUtilisateurs.bind(this)
-        this.chargerTousLesUtilisateurs()
+        this.chargerTousLesUtilisateurs(this)
         this.chargerToutesLesPublications = Projet.chargerToutesLesPublications.bind(this)
-        this.chargerToutesLesPublications()
+        this.chargerToutesLesPublications(this)
     }
 
     componentDidMount(){
-        
+        if(this.state.utilisateurs != null && this.state.utilisateurs != Projet.etiquettes.ENCHARGEMENT && this.uneFois){
+            this.uneFois = false
+            alert(" Dans didUpdate " + typeof this.state.utilisateurs)
+        }
     }
 
     componentDidUpdate(){
-      
+      if(this.state.utilisateurs != null && this.state.utilisateurs != Projet.etiquettes.ENCHARGEMENT && this.uneFois){
+          this.uneFois = false
+          alert(" Dans didUpdate " + typeof this.state.utilisateurs)
+      }
 
     }
 
@@ -44,10 +51,10 @@ export default class Accueil extends React.Component{
                     <Text style={Projet.styles.flash} > Utilisateur : {this.props.utilisateur.nom}</Text>
                     <Text style={Projet.styles.jeton} > Jeton : {this.props.jeton}</Text>
                     <ScrollView style={Projet.styles.ScrollView}>
-                        {this.state.utilisateurs === null ? (<ActivityIndicator />) : (
+                        {this.state.utilisateurs == null && this.state.utilisateurs != Projet.etiquettes.ENCHARGEMENT ? (<ActivityIndicator />) : (
                             <ListeUtilisateurs utilisateurs={this.state.utilisateurs} />
                         )}
-                        {this.state.publications === null ? (<ActivityIndicator />) : (
+                        {this.state.publications == null && this.state.publications != Projet.etiquettes.ENCHARGEMENT ? (<ActivityIndicator />) : (
                             <ListePublications publications={this.state.publications} />
                         )}
                     </ScrollView>

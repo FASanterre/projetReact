@@ -20,20 +20,22 @@ partisans = db.Table('partisans',
 
 class PaginatedAPIMixin(object):
     @staticmethod
-    def to_collection_dict(requete, page, per_page, endpoint, **kwargs):
+    def to_collection_dict(requete, page, per_page, endpoint, entete, **kwargs):
         ressources = requete.paginate(page, per_page, False)
         data = {
-            'items':[item.to_dict() for item in ressources.items],
-            '_meta':{
-                'page':page,
-                'per_page':per_page,
-                'total_pages': ressources.pages,
-                'total_items': ressources.total
-            },
-            '_links': {
-                'self': url_for(endpoint, page=page, per_page=per_page,**kwargs),
-                'suivant': url_for(endpoint, page=page + 1, per_page=per_page,*kwargs) if ressources.has_next else None,
-                'precedent': url_for(endpoint, page=page - 1, per_page=per_page,**kwargs) if ressources.has_prev else None
+            entete: {
+                'items':[item.to_dict() for item in ressources.items],
+                '_meta':{
+                    'page':page,
+                    'per_page':per_page,
+                    'total_pages': ressources.pages,
+                    'total_items': ressources.total
+                },
+                '_links': {
+                    'self': url_for(endpoint, page=page, per_page=per_page,**kwargs),
+                    'suivant': url_for(endpoint, page=page + 1, per_page=per_page,*kwargs) if ressources.has_next else None,
+                    'precedent': url_for(endpoint, page=page - 1, per_page=per_page,**kwargs) if ressources.has_prev else None
+                }
             }
         }
         return data
