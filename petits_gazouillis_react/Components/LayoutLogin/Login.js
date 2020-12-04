@@ -26,18 +26,20 @@ export default class Login extends React.Component{
     }
 
     componentDidUpdate(){
+
       if(this.state.anonyme && this.state.jeton != ""){
         var jeton = this.state.jeton
+        
         this.props.setStateParent("jeton", jeton)
         this.setState({anonyme: false})
         Projet.chargerUtilisateur(this)
       }
-
       if( (this.state.logue == false) && (this.state.utilisateur != null) && (typeof this.state.utilisateur !== 'undefined')){
-        this.state({logue:true})
-
+        this.setState({logue:true})
         var utilisateur = this.state.utilisateur
+        alert(utilisateur + "////")
         this.props.setStateParent("utilisateur", utilisateur)
+        
         this.props.setStateParent("layout", "accueil")
       }
     }

@@ -73,8 +73,8 @@ export function afficherStateParent(etat){
   alert("afficher parent etat:" + etat + " valeur:" + this.state[state])
 }
 
-export function naviguer(){
-
+export function naviguer(destination){
+  this.setState({"layout": destination})
 }
 
 
@@ -97,7 +97,6 @@ export async function chargerJeton(valeurs,thisRef){
         'Authorization': 'Basic ' + nom_mdp_base64
       },
     };
-    alert(nom_mdp)
 
     var reponse = getJson(url, obj, thisRef, "Utilisateur et mot de passe valides", "jeton")
 }
@@ -106,8 +105,8 @@ export async function chargerJeton(valeurs,thisRef){
 
 export async function chargerUtilisateur(thisRef){
     if( thisRef.state.jeton != ""){
-      alert("charger jeton")
-  
+      alert("charger utilisateur")
+
       var url = "http://127.0.0.1:5000/api/jeton_user/" + thisRef.state.jeton
   
       var obj={
@@ -115,25 +114,68 @@ export async function chargerUtilisateur(thisRef){
         headers : {
           Accept : 'application/json',
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + thisRef.jeton
+          'Authorization': 'Bearer ' + thisRef.state.jeton
         },
       };
+      var reponse = getJson(url,obj, thisRef, "Utilisateur chargé.", "utilisateur")
+    }else{
+      this.setState({flash:"impossible de charger un utilisateur. Pas de jeton."})
+    }
+  }
+
+  export async function chargerTousLesUtilisateurs(){
+    if( this.props.jeton != ""){
+      alert("charger liste des utilisateurs"  + this.props.jeton)
+  
+      var url = "http://127.0.0.1:5000/api/utilisateurs"
+  
+      var obj={
+        method : 'GET',
+        headers : {
+          Accept : 'application/json',
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + this.props.jeton
+        },
+      };
+      var reponse = getJson(url,obj, this, "Utilisateurs chargés.", "utilisateurs")
+    }else{
+      this.setState({flash:"impossible de charger la liste des utilisateurs. Pas de jeton."})
+    }
+  }
+
+  export async function chargerToutesLesPublications(){
+    if( this.props.jeton != ""){
+      alert("charger liste des publications")
+  
+      var url = "http://127.0.0.1:5000/api/publications"
+  
+      var obj={
+        method : 'GET',
+        headers : {
+          Accept : 'application/json',
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + this.props.jeton
+        },
+      };
+      var reponse = getJson(url,obj, this, "Publications chargées.", "publications")
+    }else{
+      this.setState({flash:"impossible de charger la liste des publications. Pas de jeton."})
     }
   }
 
   export async function getJson(url, obj, thisRef, message, etat){
+    
     try{
       thisRef.setState({enChargement: true})
       thisRef.setState({flash:""})
-      thisRef.setState({[etat] :""})
-      alert(obj.headers.Authorization)
+      //thisRef.setState({[etat] :""})
       let reponse = await fetch(url, obj)
       let reponseJson = await reponse.json()
       thisRef.setState({enChargement :false})
-    
       if(typeof reponseJson.erreur === 'undefined'){
         thisRef.setState({[etat] :reponseJson[etat]})
         thisRef.setState({flash :message})
+        alert("OK " + etat)
       }
       else {
         thisRef.setState({flash: reponseJson.erreur})
