@@ -27,6 +27,8 @@ def get_publications():
 
 
 
+
+
 @bp.route('/publications',methods=['POST'])
 def creer_publication():
     return "creer"

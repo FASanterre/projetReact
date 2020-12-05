@@ -75,6 +75,8 @@ export const styles = StyleSheet.create({
   },
   scrollView:{
     maxHeight: 600,
+    height:600,
+    width:920,
     maxWidth: 920
   }
 })
@@ -134,7 +136,7 @@ export async function chargerUtilisateur(thisRef){
     if( thisRef.state.jeton != ""){
       alert("charger utilisateur")
 
-      var url = "http://127.0.0.1:5000/api/jeton_user/" + thisRef.state.jeton
+      var url = "http://127.0.0.1:5000/api/jeton_user/" + thisRef.state.jeton + "?page=2"
   
       var obj={
         method : 'GET',
@@ -170,12 +172,12 @@ export async function chargerUtilisateur(thisRef){
     }
   }
 
-  export async function chargerToutesLesPublications(thisRef){
+  export async function chargerToutesLesPublications(thisRef, page){
     if( this.props.jeton != ""){
-      alert("charger liste des publications")
+      //alert("charger liste des publications ")
   
-      var url = "http://127.0.0.1:5000/api/publications"
-  
+      var url = "http://127.0.0.1:5000/api/publications?page=" + page
+      thisRef.setState({page: page})
       var obj={
         method : 'GET',
         headers : {
@@ -223,3 +225,11 @@ export async function chargerUtilisateur(thisRef){
       .required('Veuillez entrer votre mot de passe.')
       .label('mdp')
   })
+
+  export function pageSuivante(thisRef){
+    thisRef.chargerToutesLesPublications(thisRef, thisRef.state.page +1)
+  }
+
+  export function pagePrecedente(thisRef){
+    thisRef.chargerToutesLesPublications(thisRef, thisRef.state.page -1)
+  }
