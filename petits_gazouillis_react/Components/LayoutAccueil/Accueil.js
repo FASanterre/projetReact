@@ -17,7 +17,7 @@ import ListePublications from "../../Components/Listes/ListePublications.js"
 export default class Accueil extends React.Component{
     constructor(props){
         super(props)
-        this.state={premierefois:true, flash:"", utilisateurs:null, publications:null}
+        this.state={flash:"", utilisateurs:null, publications:null}
         this.uneFois = true;
         this.chargerTousLesUtilisateurs = Projet.chargerTousLesUtilisateurs.bind(this)
         this.chargerTousLesUtilisateurs(this)
@@ -26,17 +26,11 @@ export default class Accueil extends React.Component{
     }
 
     componentDidMount(){
-        if(this.state.utilisateurs != null && this.state.utilisateurs != Projet.etiquettes.ENCHARGEMENT && this.uneFois){
-            this.uneFois = false
-            alert(" Dans didUpdate " + typeof this.state.utilisateurs)
-        }
+        
     }
 
     componentDidUpdate(){
-      if(this.state.utilisateurs != null && this.state.utilisateurs != Projet.etiquettes.ENCHARGEMENT && this.uneFois){
-          this.uneFois = false
-          alert(" Dans didUpdate " + typeof this.state.utilisateurs)
-      }
+      
 
     }
 

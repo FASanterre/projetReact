@@ -21,7 +21,7 @@ export default class PetitGazouillis extends React.Component{
   constructor(props){
       super(props);
 
-      this.state ={jeton:"", utilisateur:"", layout:"login", utilisateurs:"", publications:""};
+      this.state ={jeton:"", utilisateur:"", layout:"login", utilisateurs:null, publications:null};
 
       this.setStateParent = Projet.setStateParent.bind(this)
       this.afficherStateParent = Projet.afficherStateParent.bind(this)
@@ -41,12 +41,12 @@ export default class PetitGazouillis extends React.Component{
   render(){
       if(this.state.layout == "accueil"){
         return(
-          <Accueil utilisateur={this.state.utilisateur} jeton={this.state.jeton} quitterSession={this.quitterSession} naviguer={this.naviguer}/>
+          <Accueil utilisateur={this.state.utilisateur} jeton={this.state.jeton} utilisateurs={this.state.utilisateurs} publications={this.state.publications} quitterSession={this.quitterSession} setStateParent={this.state.setStateParent} afficherStateParent={this.state.afficherStateParent} />
         )
       }
       else{
         return(
-          <Login setStateParent={this.setStateParent} afficherStateParent={this.afficherStateParent} />
+          <Login utilisateur={this.state.utilisateur} jeton={this.state.jeton} setStateParent={this.setStateParent} afficherStateParent={this.afficherStateParent} />
         )
       }
   }

@@ -18,7 +18,8 @@ import anonyme from '../../assets/icon.png'
 export default class Login extends React.Component{
     constructor(props){
         super(props)
-        this.state={anonyme:true, logue: false, flash:"",jeton:"", utilisateur:null, enChargement:false};
+        this.state={flash:"", jeton:"", utilisateur:null};
+        this.enChargement = false
     }
 
     componentDidMount(){
@@ -35,7 +36,6 @@ export default class Login extends React.Component{
       }
       if((this.state.utilisateur != null) && (this.state.utilisateur != Projet.etiquettes.ENCHARGEMENT)){
         var utilisateur = this.state.utilisateur
-        alert(utilisateur + "////")
         this.props.setStateParent("utilisateur", utilisateur)
         
         this.props.setStateParent("layout", "accueil")
