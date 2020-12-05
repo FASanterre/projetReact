@@ -10,11 +10,19 @@ export default class ListePublications extends React.Component{
     }
     
     render(){
+        var listUser = []
+        listUser.push(this.props.utilisateurs)
         return(
-            <FlatList style={{marginTop: 12, flex: 1}} data={this.props.publications.items} renderItem={({item}) =>
             <View>
-                <Text style={Projet.styles.flash}>Corps: {item.corps}</Text><br/>
-            </View>}/>
+            <FlatList style={{marginTop: 12, flex: 1}} data={this.props.publications} renderItem={({item}) =>
+                <View style={Projet.styles.flexbox}>
+                    <Text style={Projet.styles.flash}>ID: {item.id}</Text>
+                    {listUser.map(util => util.items.map(info => info.id == item.utilisateur_id ? <View style={Projet.styles.flexbox}><Image style={Projet.styles.miniAvatar} source={info.avatar} ></Image> <Text style={Projet.styles.flash}>{info.nom}</Text></View> : <Text></Text>))}
+                    <View>
+                        <Text>dit: {item.corps}</Text>
+                    </View>
+                </View>}
+            /></View>
         )
     }
 }

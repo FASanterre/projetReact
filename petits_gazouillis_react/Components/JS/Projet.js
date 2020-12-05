@@ -10,6 +10,11 @@ export const styles = StyleSheet.create({
     width:1080,
     height:1920
   },
+  flexbox:{
+    display: "flex",
+    flexDirection: "row",
+    flexWrap:"wrap"
+  },
   logo:{
     width:600,
     height:250,
@@ -67,6 +72,10 @@ export const styles = StyleSheet.create({
   erreur:{
     fontSize:50,
     color:"red"
+  },
+  scrollView:{
+    maxHeight: 600,
+    maxWidth: 920
   }
 })
 
@@ -86,7 +95,16 @@ export function naviguer(destination){
   this.setState({"layout": destination})
 }
 
-
+export function changerFiltre(thisRef){
+  if(thisRef.state.filtre == "tout"){
+    thisRef.setState({filtre: "miennes"})
+  }
+  else if(thisRef.state.filtre == "miennes"){
+    thisRef.setState({filtre: "suivies"})
+  }else{
+    thisRef.setState({filtre: "tout"})
+  }
+}
 
 export function quitterSession(){
     alert("Quitter session")
@@ -183,7 +201,7 @@ export async function chargerUtilisateur(thisRef){
       if(typeof reponseJson.erreur === 'undefined'){
         thisRef.setState({[etat] :reponseJson[etat]})
         thisRef.setState({flash :message})
-        alert(reponseJson[etat] + " " + etat)
+        //alert(reponseJson[etat] + " " + etat)
       }
       else {
         thisRef.setState({flash: reponseJson.erreur})

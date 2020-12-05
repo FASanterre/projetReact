@@ -10,16 +10,20 @@ export default class ListeUtilisateurs extends React.Component{
         super(props)
     }
     render(){
-        return(
-            <FlatList 
-            style={{marginTop: 12, flex: 1}}
-            data={this.props.utilisateurs.items}
-            renderItem={({item}) => 
+            return(
                 <View>
-                    <Image source={item.avatar} style={Projet.styles.miniAvatar}/>
-                    <Text style={Projet.styles.flash}>Nom: {item.nom}</Text><br/>
-                </View>}
-            />
-        )
+                    <Text></Text>
+                </View>
+                /*<View>
+                <FlatList 
+                style={{marginTop: 12, flex: 1}}
+                data={this.props.utilisateurs.items}
+                renderItem={({item}) => 
+                    <View>
+                        <Image source={item.avatar} style={Projet.styles.miniAvatar}/>
+                        <Text style={Projet.styles.flash}>Nom: {item.nom}</Text><br/>
+                    </View>}
+                /></View>*/
+            )
     }
 }

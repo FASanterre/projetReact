@@ -1,5 +1,5 @@
 from app.api import bp
-from app.modeles import Publication
+from app.modeles import Publication, Utilisateur
 from flask import jsonify
 from flask import request
 from flask_login import login_required
@@ -24,6 +24,8 @@ def get_publications():
     data= Publication.to_collection_dict(Publication.query, page, par_page, 'api.get_publications', "publications")
 
     return jsonify(data)
+
+
 
 @bp.route('/publications',methods=['POST'])
 def creer_publication():

@@ -1,4 +1,4 @@
-2020-10-26 20:34:24,710 ERROR: Exception on / [GET] [in /home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py:1892]
+2020-10-26 20:34:25,423 ERROR: Exception on /static/css/styles.css [GET] [in /home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py:1892]
 Traceback (most recent call last):
   File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1277, in _execute_context
     cursor, statement, parameters, context
@@ -61,5 +61,31 @@ Traceback (most recent call last):
     cursor.execute(statement, parameters)
 sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) table utilisateur has no column named jeton
 [SQL: INSERT INTO utilisateur (nom, courriel, mot_de_passe_hash, avatar, a_propos_de_moi, dernier_acces, jeton, jeton_expiration) VALUES (?, ?, ?, ?, ?, ?, ?, ?)]
-[parameters: ('Harry', 'h.potter@info.cgg', 'pbkdf2:sha256:150000$DTi5ZflW$b628ee2644024a73a966f39ddd25a4858e825796f9db3685616e23dd65d05b0e', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAIAAABMXPacAAArWHpUWHRSYXcgcHJvZmlsZSB0eXBlIGV4aWYAAHjarZxpkiQpcIX/cwodgX05Djhgphvo+PoemV2zSjM ... (51068 characters truncated) ... VVIkWnr8qCyWiWEkV+OWLpQD9DTayROjxIz95X1lO04WOnGUpslF2qe79KFdXtva3d4HE4KFJCGWkrLF5MPtkrp3n31uti+UVV1n52R/s9NfOuBb6R5cuvRMVFrZsJ5O5zgAAAABJRU5ErkJggg==', 'Je suis Harry', '2020-10-27 00:34:24.216090', None, None)]
+[parameters: ('Harry', 'h.potter@info.cgg', 'pbkdf2:sha256:150000$ngUad1dE$8857546e1f3abd73665a3047824efadc6cc20422d144f9bd5cefa784a1281d25', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAIAAABMXPacAAArWHpUWHRSYXcgcHJvZmlsZSB0eXBlIGV4aWYAAHjarZxpkiQpcIX/cwodgX05Djhgphvo+PoemV2zSjM ... (51068 characters truncated) ... VVIkWnr8qCyWiWEkV+OWLpQD9DTayROjxIz95X1lO04WOnGUpslF2qe79KFdXtva3d4HE4KFJCGWkrLF5MPtkrp3n31uti+UVV1n52R/s9NfOuBb6R5cuvRMVFrZsJ5O5zgAAAABJRU5ErkJggg==', 'Je suis Harry', '2020-10-27 00:34:24.995470', None, None)]
 (Background on this error at: http://sqlalche.me/e/13/e3q8)
+2020-10-26 20:34:41,658 INFO: Démarrage de petits Gazouillis [in /home/etudiant/projetsPython/petits_gazouillis/app/__init__.py:48]
+2020-10-26 20:34:52,533 INFO: Démarrage de petits Gazouillis [in /home/etudiant/projetsPython/petits_gazouillis/app/__init__.py:48]
+2020-10-26 20:35:08,036 INFO: Démarrage de petits Gazouillis [in /home/etudiant/projetsPython/petits_gazouillis/app/__init__.py:48]
+2020-10-26 20:35:17,965 INFO: Démarrage de petits Gazouillis [in /home/etudiant/projetsPython/petits_gazouillis/app/__init__.py:48]
+2020-10-26 20:35:24,667 INFO: Démarrage de petits Gazouillis [in /home/etudiant/projetsPython/petits_gazouillis/app/__init__.py:48]
+2020-10-26 20:36:10,149 INFO: Démarrage de petits Gazouillis [in /home/etudiant/projetsPython/petits_gazouillis/app/__init__.py:48]
+2020-10-26 20:53:27,541 INFO: Démarrage de petits Gazouillis [in /home/etudiant/projetsPython/petits_gazouillis/app/__init__.py:48]
+2020-10-26 21:01:03,395 INFO: Démarrage de petits Gazouillis [in /home/etudiant/projetsPython/petits_gazouillis/app/__init__.py:48]
+2020-10-26 21:03:31,482 ERROR: Exception on /api/publications [GET] [in /home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py:1892]
+Traceback (most recent call last):
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/etudiant/projetsPython/petits_gazouillis/app/api/publications.py", line 18, in get_publications
+    data= Publication.to_collection_dict(Publication.query, page, par_page, 'api.get_publications')
+AttributeError: type object 'Publication' has no attribute 'to_collection_dict'
+2020-11-02 14:39:34,971 INFO: Démarrage de petits Gazouillis [in /home/etudiant/projetsPython/petits_gazouillis/app/__init__.py:48]

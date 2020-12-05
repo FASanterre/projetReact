@@ -41,7 +41,7 @@ export default class PetitGazouillis extends React.Component{
   render(){
       if(this.state.layout == "accueil"){
         return(
-          <Accueil utilisateur={this.state.utilisateur} jeton={this.state.jeton} utilisateurs={this.state.utilisateurs} publications={this.state.publications} quitterSession={this.quitterSession} setStateParent={this.state.setStateParent} afficherStateParent={this.state.afficherStateParent} />
+          <Accueil utilisateur={this.state.utilisateur} jeton={this.state.jeton}  quitterSession={this.quitterSession} setStateParent={this.state.setStateParent} afficherStateParent={this.state.afficherStateParent} />
         )
       }
       else{

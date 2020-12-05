@@ -85,6 +85,7 @@ class Utilisateur(PaginatedAPIMixin, UserMixin, db.Model):
 
     def to_dict(self):
         publications = self.liste_publications_dont_je_suis_partisan()
+        #publications2 = Publication.to_collection_dict(publications, page, par_page, 'api.get_publications', "publications")
         partisans = self.les_partisans
 
         data = {
@@ -94,7 +95,7 @@ class Utilisateur(PaginatedAPIMixin, UserMixin, db.Model):
             'avatar':self.avatar,
             'a_propos_de_moi':self.a_propos_de_moi,
             'dernier_acces':self.dernier_acces,
-            'publications':[item.id for item in publications],
+            'publications':[item.to_dict() for item in publications],
             'partisans':[item.id for item in partisans]
         }
         return data
@@ -110,7 +111,7 @@ class Utilisateur(PaginatedAPIMixin, UserMixin, db.Model):
             'avatar':self.avatar,
             'a_propos_de_moi':self.a_propos_de_moi,
             'dernier_acces':self.dernier_acces,
-            'publications':[item.id for item in publications],
+            'publications':[item.to_dict() for item in publications],
             'partisans':[item.id for item in partisans]
             }
         }
