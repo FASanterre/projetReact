@@ -36,7 +36,7 @@ def index():
         db.session.add(publication)
         db.session.commit()
         id = publication.id
-        socketio.emit('nouvelle publication', {'id': id}, namespace='/chat')
+        socketio.emit('nouvelle publication', {'id': id, 'corps': publication.corps}, namespace='/chat')
         flash('Votre publication est en ligne!')
         return redirect(url_for('index'))
     utilisateur = current_user

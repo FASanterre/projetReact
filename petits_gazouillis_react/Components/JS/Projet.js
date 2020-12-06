@@ -328,6 +328,28 @@ export async function chargerUtilisateur(thisRef){
     }
   }
 
+  export async function publier(thisRef, corps){
+    if(thisRef.state.jeton != "" && corps.trim() != ""){
+      var url = "http://127.0.0.1:5000/api/publications"
+      var obj={
+        method : 'POST',
+        headers : {
+          Accept : 'application/json',
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + thisRef.state.jeton
+        },
+        body:JSON.stringify({
+          jeton:thisRef.state.jeton,
+          corps:corps
+        })
+      };
+      var reponse = await getJson(url, obj, thisRef, "publier " + corps, "suivre")
+    }
+    else {
+      this.setState({flash: "Ajout non réussi"})
+    }
+  }
+
   export async function getJson(url, obj, thisRef, message, etat){
     try{
       thisRef.setState({flash:"",enChargement: true, [etat] :etiquettes.ENCHARGEMENT})

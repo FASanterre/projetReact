@@ -85,3 +85,4 @@ Traceback (most recent call last):
 NameError: name 'db' is not defined
 2020-12-05 23:52:54,601 INFO: Démarrage de petits Gazouillis [in /home/etudiant/projets/projetFinalReact/petits_gazouillis/app/__init__.py:52]
 2020-12-05 23:54:31,458 INFO: Démarrage de petits Gazouillis [in /home/etudiant/projets/projetFinalReact/petits_gazouillis/app/__init__.py:52]
+2020-12-06 14:21:20,385 INFO: Démarrage de petits Gazouillis [in /home/etudiant/projets/projetReact/petits_gazouillis/app/__init__.py:52]

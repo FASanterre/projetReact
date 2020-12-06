@@ -13,6 +13,7 @@ import * as Projet from '../JS/Projet.js'
 import logo from "../../assets/LogoPetitsGazouillis.png"
 import ListeUtilisateurs from "../../Components/Listes/ListeUtilisateurs.js"
 import ListePublications from "../../Components/Listes/ListePublications.js"
+import Actualiser from "../../Components/LayoutActualiser/Actualiser.js"
 
 export default class Accueil extends React.Component{
     constructor(props){
@@ -25,6 +26,7 @@ export default class Accueil extends React.Component{
         this.chargerToutesLesPublications(this, this.state.page)
         this.pageSuivante = Projet.pageSuivante.bind(this)
         this.pagePrecedente = Projet.pagePrecedente.bind(this)
+        this.setStateParent = this.props.setStateParent
     }
 
 
@@ -44,6 +46,7 @@ export default class Accueil extends React.Component{
                     {this.state.utilisateurs == null && this.state.utilisateurs != Projet.etiquettes.ENCHARGEMENT ? (<ActivityIndicator />) : (
                             <ListeUtilisateurs  utilisateurs={this.state.utilisateurs} utilisateur={this.state.utilisateur} jeton={this.state.jeton} />
                     )}
+                    <Actualiser utilisateurs={this.state.utilisateurs} setStateParent={this.state.setStateParent}/>
                     <View style={Projet.styles.flexbox}>
                         <Text style={Projet.styles.txtPage}>Filtre :</Text>
                         <TouchableOpacity onPress={() => Projet.changerFiltre(this)} style={Projet.styles.btnPage}>

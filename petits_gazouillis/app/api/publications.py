@@ -1,5 +1,5 @@
 from app.api import bp
-from app import db
+from app import db, socketio
 from app.modeles import Publication, Utilisateur
 from flask import jsonify
 from flask import request
@@ -47,3 +47,23 @@ def cree_publication(id):
     db.session.add(publication)
     db.session.commit()
     return ("OK")
+
+@bp.route('/publications', methods=['POST'])
+@cross_origin()
+@token_auth.login_required
+def creer_publication():
+    jeton= request.json(["jeton"])
+    corps= request.json(["corps"])
+
+    print(jeton)
+    print(corps)
+    print("publier un nouveau message: " + corps)
+    u = Utilisateur.query.filter_by(jeton=jeton).first_or_404()
+    publication = Publication(corps=corps, auteur=u)
+    db.session.add(publication)
+    db.session.commit()
+
+    id = publication.utilisateur_id
+    socketio.emit('nouvelle_publication', {'id': id, 'corps': publication.corps}, namespace='/chat')
+
+    return jsonify(publication.to_dict())
