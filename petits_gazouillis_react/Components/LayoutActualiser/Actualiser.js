@@ -49,7 +49,6 @@ export default class Actualiser extends React.Component{
                     nouveau:true,
                     nb_nouvelles:n
                 })
-                alert("Le socket a détecté une publication")
             })
         }
         else {

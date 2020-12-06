@@ -17,7 +17,6 @@ export default class ListeUtilisateurs extends React.Component{
             if(this.state.start == 0){
                 Projet.listUser.push(this.props.utilisateurs)
                 Projet.listCurrentUser.push(this.props.utilisateur)
-                alert("Rentre une fois")
                 Projet.listCurrentUser[0].partisans.forEach(element => {
                     Projet.listPartisans.push(element)
                 });

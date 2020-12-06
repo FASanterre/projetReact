@@ -224,7 +224,6 @@ export async function chargerJeton(valeurs,thisRef){
 
 export async function chargerUtilisateur(thisRef){
     if( thisRef.state.jeton != ""){
-      alert("charger utilisateur")
 
       var url = "http://127.0.0.1:5000/api/jeton_user/" + thisRef.state.jeton + "?page=2"
   
@@ -244,7 +243,6 @@ export async function chargerUtilisateur(thisRef){
 
   export async function chargerTousLesUtilisateurs(thisRef){
     if( this.props.jeton != ""){
-      alert("charger liste des utilisateurs "  + this.props.jeton)
   
       var url = "http://127.0.0.1:5000/api/utilisateurs"
   
@@ -264,7 +262,6 @@ export async function chargerUtilisateur(thisRef){
 
   export async function chargerToutesLesPublications(thisRef, page){
     if( this.props.jeton != ""){
-      //alert("charger liste des publications ")
   
       var url = "http://127.0.0.1:5000/api/publications?page=" + page
       thisRef.setState({page: page})
@@ -300,7 +297,6 @@ export async function chargerUtilisateur(thisRef){
     }
     else{
       this.setState({flash:"Impossible de suivre l'utilisateur selectionné"})
-      alert("NON")
     }
   }
 
@@ -331,7 +327,6 @@ export async function chargerUtilisateur(thisRef){
 
   export async function creerPublication(thisRef, id){
     if(thisRef.props.jeton != "" && id.trim() != ""){
-      alert("YES")
       var url = "http://127.0.0.1:5000/api/publicationsCreer/\"" + id + "\""
       var obj={
         method : 'POST',
