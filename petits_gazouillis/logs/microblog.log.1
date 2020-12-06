@@ -1,90 +1,92 @@
-2020-12-05 21:45:37,529 INFO: Démarrage de petits Gazouillis [in /home/etudiant/projets/projetFinalReact/petits_gazouillis/app/__init__.py:52]
-2020-12-05 23:29:41,279 INFO: Démarrage de petits Gazouillis [in /home/etudiant/projets/projetFinalReact/petits_gazouillis/app/__init__.py:52]
-2020-12-05 23:29:49,416 ERROR: Exception on /api/publicationsCreer/salut [POST] [in /home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py:1892]
+2020-12-06 14:39:27,010 ERROR: Exception on /api/publications [POST] [in /home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py:1892]
 Traceback (most recent call last):
-  File "/home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
-  File "/home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask_cors/extension.py", line 165, in wrapped_function
     return cors_after_request(app.make_response(f(*args, **kwargs)))
-  File "/home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "/home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
     raise value
-  File "/home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-TypeError: decorator() got an unexpected keyword argument 'text'
-2020-12-05 23:31:15,054 INFO: Démarrage de petits Gazouillis [in /home/etudiant/projets/projetFinalReact/petits_gazouillis/app/__init__.py:52]
-2020-12-05 23:31:19,861 ERROR: Exception on /api/publicationsCreer/salut [POST] [in /home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py:1892]
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask_cors/decorator.py", line 128, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask_httpauth.py", line 163, in decorated
+    return f(*args, **kwargs)
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/app/api/publications.py", line 55, in creer_publication
+    jeton= request.json(["jeton"])
+TypeError: 'dict' object is not callable
+2020-12-06 14:39:30,528 ERROR: Exception on /api/publications [POST] [in /home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py:1892]
 Traceback (most recent call last):
-  File "/home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
-  File "/home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask_cors/extension.py", line 165, in wrapped_function
     return cors_after_request(app.make_response(f(*args, **kwargs)))
-  File "/home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "/home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
     raise value
-  File "/home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-TypeError: decorator() got an unexpected keyword argument 'text'
-2020-12-05 23:31:38,731 INFO: Démarrage de petits Gazouillis [in /home/etudiant/projets/projetFinalReact/petits_gazouillis/app/__init__.py:52]
-2020-12-05 23:31:45,113 ERROR: Exception on /api/publicationsCreer/salut [POST] [in /home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py:1892]
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask_cors/decorator.py", line 128, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask_httpauth.py", line 163, in decorated
+    return f(*args, **kwargs)
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/app/api/publications.py", line 55, in creer_publication
+    jeton= request.json(["jeton"])
+TypeError: 'dict' object is not callable
+2020-12-06 14:39:38,672 ERROR: Exception on /api/publications [POST] [in /home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py:1892]
 Traceback (most recent call last):
-  File "/home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
-  File "/home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask_cors/extension.py", line 165, in wrapped_function
     return cors_after_request(app.make_response(f(*args, **kwargs)))
-  File "/home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "/home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
     raise value
-  File "/home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-TypeError: decorator() got an unexpected keyword argument 'text'
-2020-12-05 23:32:04,138 INFO: Démarrage de petits Gazouillis [in /home/etudiant/projets/projetFinalReact/petits_gazouillis/app/__init__.py:52]
-2020-12-05 23:32:09,015 ERROR: Exception on /api/publicationsCreer/salut [POST] [in /home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py:1892]
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask_cors/decorator.py", line 128, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask_httpauth.py", line 163, in decorated
+    return f(*args, **kwargs)
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/app/api/publications.py", line 55, in creer_publication
+    jeton= request.json(["jeton"])
+TypeError: 'dict' object is not callable
+2020-12-06 14:51:37,293 ERROR: Exception on /api/publications [POST] [in /home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py:1892]
 Traceback (most recent call last):
-  File "/home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
-  File "/home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "/home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask_cors/extension.py", line 165, in wrapped_function
     return cors_after_request(app.make_response(f(*args, **kwargs)))
-  File "/home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
     reraise(exc_type, exc_value, tb)
-  File "/home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
     raise value
-  File "/home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
     rv = self.dispatch_request()
-  File "/home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-TypeError: decorator() got an unexpected keyword argument 'text'
-2020-12-05 23:33:35,905 ERROR: Exception on /api/publicationsCreer/salut [POST] [in /home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py:1892]
-Traceback (most recent call last):
-  File "/home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask_cors/extension.py", line 165, in wrapped_function
-    return cors_after_request(app.make_response(f(*args, **kwargs)))
-  File "/home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/etudiant/projets/projetFinalReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-TypeError: decorator() got an unexpected keyword argument 'text'
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask_cors/decorator.py", line 128, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/venv/lib/python3.7/site-packages/flask_httpauth.py", line 163, in decorated
+    return f(*args, **kwargs)
+  File "/home/etudiant/projets/projetReact/petits_gazouillis/app/api/publications.py", line 55, in creer_publication
+    jeton= request.json(["jeton"])
+TypeError: 'dict' object is not callable

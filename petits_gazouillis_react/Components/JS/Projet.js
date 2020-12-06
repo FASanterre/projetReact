@@ -321,7 +321,7 @@ export async function chargerUtilisateur(thisRef){
           'Authorization': 'Bearer ' + thisRef.props.jeton
         },
       };
-      var reponse = await getJson(url,obj, thisRef, "Ajout de la publication", "suivre")
+      var reponse = getJson(url,obj, thisRef, "Ajout de la publication", "suivre")
     }
     else{
       this.setState({flash:"Ajout non réussi"})
@@ -343,7 +343,7 @@ export async function chargerUtilisateur(thisRef){
           corps:corps
         })
       };
-      var reponse = await getJson(url, obj, thisRef, "publier " + corps, "suivre")
+      var reponse = getJson(url, obj, thisRef, "publier " + corps, "suivre")
     }
     else {
       this.setState({flash: "Ajout non réussi"})

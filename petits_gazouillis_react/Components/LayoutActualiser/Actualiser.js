@@ -25,7 +25,7 @@ export default class Actualiser extends React.Component{
 
     initialiser(){
         var socket = null
-        socket = io('127.0.0.1:5000/chat')
+        socket = io(SOCKET_URL)
 
         return socket;
     }
@@ -42,13 +42,14 @@ export default class Actualiser extends React.Component{
             })
 
             this.socket.on('nouvelle_publication', data =>{
-                var n = thid.state.nb_nouvelles + 1
+                var n = this.state.nb_nouvelles + 1
                 this.setState({
                     message:data.corps,
                     id:data.id,
                     nouveau:true,
                     nb_nouvelles:n
                 })
+                alert("Le socket a détecté une publication")
             })
         }
         else {
@@ -67,16 +68,16 @@ export default class Actualiser extends React.Component{
         }
         return(
             <View>
-                {this.state.nouveau == false ? <TouchableOpacity disabled={true}>
-                    <Text onPress={() => {
+                {this.state.nouveau == false ? (<TouchableOpacity disabled={true} onPress={() => {
                         this.actualiser()
-                    }}>{this.state.message}</Text>
-                </TouchableOpacity> : (
-                    <TouchableOpacity>
+                    }}>
+                    <Text >Texte qui devrais etre disable</Text>
+                </TouchableOpacity>) : (
+                    <TouchableOpacity onPress={() => {
+                        this.actualiser()
+                    }}>
                         {/*<Image style={Projet.styles.miniAvatar} source={listUser[id - 1].avatar}/>*/}
-                        <Text onPress={() => {
-                            this.actualiser()
-                        }}>{this.state.message} ({this.state.nb_nouvelles})</Text>
+                        <Text >{this.state.message} ({this.state.nb_nouvelles})</Text>
                     </TouchableOpacity>
                 )}
             </View>

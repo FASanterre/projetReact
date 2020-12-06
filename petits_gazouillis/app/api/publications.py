@@ -52,8 +52,8 @@ def cree_publication(id):
 @cross_origin()
 @token_auth.login_required
 def creer_publication():
-    jeton= request.json(["jeton"])
-    corps= request.json(["corps"])
+    jeton= request.json["jeton"]
+    corps= request.json["corps"]
 
     print(jeton)
     print(corps)

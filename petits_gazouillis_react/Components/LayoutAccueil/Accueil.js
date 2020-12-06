@@ -40,7 +40,7 @@ export default class Accueil extends React.Component{
                     <View style={Projet.styles.inputView}>
                           <TextInput style={Projet.styles.inputText} placeholder="Message de la publication..." placeholderTextColor="#bbbbbb" onChangeText={(text) => this.setState({newPost:text})} />
                     </View>
-                    <TouchableOpacity style={Projet.styles.btnPage} onPress={() => Projet.creerPublication(this,this.state.newPost)} style={Projet.styles.btnPage}>
+                    <TouchableOpacity style={Projet.styles.btnPage} onPress={() => Projet.publier(this,this.state.newPost)} style={Projet.styles.btnPage}>
                             <Text style={Projet.styles.txtPage}>Publier</Text>
                     </TouchableOpacity>
                     {this.state.utilisateurs == null && this.state.utilisateurs != Projet.etiquettes.ENCHARGEMENT ? (<ActivityIndicator />) : (
