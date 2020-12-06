@@ -1,4 +1,4 @@
-2020-10-26 18:16:13,185 ERROR: Exception on /etablir_session [GET] [in /home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py:1892]
+2020-10-26 18:31:56,754 ERROR: Exception on /api/utilisateurs [GET] [in /home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py:1892]
 Traceback (most recent call last):
   File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,46 +12,23 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/etudiant/projetsPython/petits_gazouillis/app/routes.py", line 112, in etablir_session
-    return render_template('etablir_session.html', titre='Établir une session', formulaire=formulaire)
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/templating.py", line 140, in render_template
-    ctx.app,
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/templating.py", line 120, in _render
-    rv = template.render(context)
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1090, in render
-    self.environment.handle_exception()
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/jinja2/environment.py", line 832, in handle_exception
-    reraise(*rewrite_traceback_stack(source=source))
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 28, in reraise
-    raise value.with_traceback(tb)
-  File "/home/etudiant/projetsPython/petits_gazouillis/app/templates/etablir_session.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/home/etudiant/projetsPython/petits_gazouillis/app/templates/base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/templating.py", line 60, in get_source
-    return self._get_source_fast(environment, template)
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/templating.py", line 89, in _get_source_fast
-    raise TemplateNotFound(template)
-jinja2.exceptions.TemplateNotFound: bootstrap/base.html
-2020-10-26 18:16:22,372 ERROR: Exception on /api/utilisateurs [GET] [in /home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py:1892]
-Traceback (most recent call last):
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/etudiant/projetsPython/petits_gazouillis/app/api/utilisateurs.py", line 19, in get_utilisateurs
+  File "/home/etudiant/projetsPython/petits_gazouillis/app/api/utilisateurs.py", line 18, in get_utilisateurs
     data= Utilisateur.to_collection_dict(Utilisateur.query, page, par_page, 'api.get_publications')
-AttributeError: type object 'Utilisateur' has no attribute 'to_collection_dict'
-2020-10-26 18:21:20,380 INFO: Démarrage de petits Gazouillis [in /home/etudiant/projetsPython/petits_gazouillis/app/__init__.py:45]
-2020-10-26 18:21:25,670 ERROR: Exception on /etablir_session [GET] [in /home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py:1892]
+  File "/home/etudiant/projetsPython/petits_gazouillis/app/modeles.py", line 32, in to_collection_dict
+    'self': url_for(endpoint, page=page, per_page=per_page,**kwargs),
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 2216, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/helpers.py", line 358, in url_for
+    endpoint, values, method=method, force_external=external
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 2179, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'api.get_publications' with values ['page', 'per_page']. Did you mean 'api.get_publications2' instead?
+2020-10-26 18:32:16,618 INFO: Démarrage de petits Gazouillis [in /home/etudiant/projetsPython/petits_gazouillis/app/__init__.py:47]
+2020-10-26 18:32:33,682 ERROR: Exception on /api/utilisateurs [GET] [in /home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py:1892]
 Traceback (most recent call last):
   File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -65,28 +42,23 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/etudiant/projetsPython/petits_gazouillis/app/routes.py", line 112, in etablir_session
-    return render_template('etablir_session.html', titre='Établir une session', formulaire=formulaire)
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/templating.py", line 140, in render_template
-    ctx.app,
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/templating.py", line 120, in _render
-    rv = template.render(context)
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1090, in render
-    self.environment.handle_exception()
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/jinja2/environment.py", line 832, in handle_exception
-    reraise(*rewrite_traceback_stack(source=source))
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 28, in reraise
-    raise value.with_traceback(tb)
-  File "/home/etudiant/projetsPython/petits_gazouillis/app/templates/etablir_session.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/home/etudiant/projetsPython/petits_gazouillis/app/templates/base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/templating.py", line 60, in get_source
-    return self._get_source_fast(environment, template)
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/templating.py", line 89, in _get_source_fast
-    raise TemplateNotFound(template)
-jinja2.exceptions.TemplateNotFound: bootstrap/base.html
-2020-10-26 18:21:33,464 ERROR: Exception on /api/publications/2 [GET] [in /home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py:1892]
+  File "/home/etudiant/projetsPython/petits_gazouillis/app/api/utilisateurs.py", line 18, in get_utilisateurs
+    data= Utilisateur.to_collection_dict(Utilisateur.query, page, par_page, 'api.get_publications')
+  File "/home/etudiant/projetsPython/petits_gazouillis/app/modeles.py", line 32, in to_collection_dict
+    'self': url_for(endpoint, page=page, per_page=per_page,**kwargs),
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 2216, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/helpers.py", line 358, in url_for
+    endpoint, values, method=method, force_external=external
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 2179, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'api.get_publications' with values ['page', 'per_page']. Did you mean 'api.get_publications2' instead?
+2020-10-26 19:24:22,110 INFO: Démarrage de petits Gazouillis [in /home/etudiant/projetsPython/petits_gazouillis/app/__init__.py:47]
+2020-10-26 19:25:03,520 ERROR: Exception on /api/utilisateurs [GET] [in /home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py:1892]
 Traceback (most recent call last):
   File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
@@ -100,7 +72,21 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/etudiant/projetsPython/petits_gazouillis/app/api/publications.py", line 13, in get_publication
-    return jsonify(Publication.query.get_or_404(id).to_dict())
-AttributeError: 'Publication' object has no attribute 'to_dict'
-2020-10-26 18:29:13,906 INFO: Démarrage de petits Gazouillis [in /home/etudiant/projetsPython/petits_gazouillis/app/__init__.py:45]
+  File "/home/etudiant/projetsPython/petits_gazouillis/app/api/utilisateurs.py", line 18, in get_utilisateurs
+    data= Utilisateur.to_collection_dict(Utilisateur.query, page, par_page, 'api.get_publications')
+  File "/home/etudiant/projetsPython/petits_gazouillis/app/modeles.py", line 32, in to_collection_dict
+    'self': url_for(endpoint, page=page, per_page=per_page,**kwargs),
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 2216, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/helpers.py", line 358, in url_for
+    endpoint, values, method=method, force_external=external
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 2179, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'api.get_publications' with values ['page', 'per_page']. Did you mean 'api.get_publications2' instead?
+2020-10-26 19:26:16,752 INFO: Démarrage de petits Gazouillis [in /home/etudiant/projetsPython/petits_gazouillis/app/__init__.py:47]
+2020-10-26 19:39:33,013 INFO: Démarrage de petits Gazouillis [in /home/etudiant/projetsPython/petits_gazouillis/app/__init__.py:48]
+2020-10-26 19:43:24,665 INFO: Démarrage de petits Gazouillis [in /home/etudiant/projetsPython/petits_gazouillis/app/__init__.py:48]

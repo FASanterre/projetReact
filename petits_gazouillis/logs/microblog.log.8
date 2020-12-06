@@ -1,113 +1,65 @@
-2020-10-26 18:31:48,908 ERROR: Exception on /etablir_session [GET] [in /home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py:1892]
+2020-10-26 20:34:24,710 ERROR: Exception on / [GET] [in /home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py:1892]
 Traceback (most recent call last):
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1821, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1936, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/etudiant/projetsPython/petits_gazouillis/app/routes.py", line 112, in etablir_session
-    return render_template('etablir_session.html', titre='Établir une session', formulaire=formulaire)
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/templating.py", line 140, in render_template
-    ctx.app,
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/templating.py", line 120, in _render
-    rv = template.render(context)
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1090, in render
-    self.environment.handle_exception()
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/jinja2/environment.py", line 832, in handle_exception
-    reraise(*rewrite_traceback_stack(source=source))
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 28, in reraise
-    raise value.with_traceback(tb)
-  File "/home/etudiant/projetsPython/petits_gazouillis/app/templates/etablir_session.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/home/etudiant/projetsPython/petits_gazouillis/app/templates/base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block "doc"
-    {%- block html %}
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block "html"
-    {% block body -%}
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 21, in block "body"
-    {% block navbar %}
-  File "/home/etudiant/projetsPython/petits_gazouillis/app/templates/base.html", line 36, in block "navbar"
-    <!--<a class="navbar-brand" href="{{ url_for('websocket') }}">Websocket</a>-->
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/helpers.py", line 370, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 2216, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/helpers.py", line 358, in url_for
-    endpoint, values, method=method, force_external=external
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 2179, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'websocket'. Did you mean 'explorer' instead?
-2020-10-26 18:31:49,032 ERROR: Exception on /favicon.ico [GET] [in /home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py:1892]
-Traceback (most recent call last):
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1950, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1926, in dispatch_request
-    self.raise_routing_exception(req)
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1908, in raise_routing_exception
-    raise request.routing_exception
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/ctx.py", line 350, in match_request
-    result = self.url_adapter.match(return_rule=True)
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 1945, in match
-    raise NotFound()
-werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1277, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: table utilisateur has no column named jeton
 
-During handling of the above exception, another exception occurred:
+The above exception was the direct cause of the following exception:
 
 Traceback (most recent call last):
   File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 2447, in wsgi_app
     response = self.full_dispatch_request()
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1952, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1816, in handle_user_exception
-    return self.handle_http_exception(e)
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1744, in handle_http_exception
-    return handler(e)
-  File "/home/etudiant/projetsPython/petits_gazouillis/app/erreurs.py", line 6, in not_found_error
-    return render_template('404.html'), 404
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/templating.py", line 140, in render_template
-    ctx.app,
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/templating.py", line 120, in _render
-    rv = template.render(context)
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1090, in render
-    self.environment.handle_exception()
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/jinja2/environment.py", line 832, in handle_exception
-    reraise(*rewrite_traceback_stack(source=source))
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 28, in reraise
-    raise value.with_traceback(tb)
-  File "/home/etudiant/projetsPython/petits_gazouillis/app/templates/404.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/home/etudiant/projetsPython/petits_gazouillis/app/templates/base.html", line 1, in top-level template code
-    {% extends 'bootstrap/base.html' %}
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
-    {% block doc -%}
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block "doc"
-    {%- block html %}
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block "html"
-    {% block body -%}
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 21, in block "body"
-    {% block navbar %}
-  File "/home/etudiant/projetsPython/petits_gazouillis/app/templates/base.html", line 36, in block "navbar"
-    <!--<a class="navbar-brand" href="{{ url_for('websocket') }}">Websocket</a>-->
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/helpers.py", line 370, in url_for
-    return appctx.app.handle_url_build_error(error, endpoint, values)
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 2216, in handle_url_build_error
-    reraise(exc_type, exc_value, tb)
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
-    raise value
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/helpers.py", line 358, in url_for
-    endpoint, values, method=method, force_external=external
-  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/werkzeug/routing.py", line 2179, in build
-    raise BuildError(endpoint, values, method, self)
-werkzeug.routing.BuildError: Could not build url for endpoint 'websocket'. Did you mean 'explorer' instead?
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1945, in full_dispatch_request
+    self.try_trigger_before_first_request_functions()
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/flask/app.py", line 1993, in try_trigger_before_first_request_functions
+    func()
+  File "/home/etudiant/projetsPython/petits_gazouillis/petits_gazouillis.py", line 39, in initialisation
+    db.session.commit()
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1042, in commit
+    self.transaction.commit()
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 504, in commit
+    self._prepare_impl()
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 483, in _prepare_impl
+    self.session.flush()
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2523, in flush
+    self._flush(objects)
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2664, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 69, in __exit__
+    exc_value, with_traceback=exc_tb,
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2624, in _flush
+    flush_context.execute()
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
+    uow,
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 245, in save_obj
+    insert,
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 1136, in _emit_insert_statements
+    statement, params
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1011, in execute
+    return meth(self, multiparams, params)
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1130, in _execute_clauseelement
+    distilled_params,
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1317, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1511, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1277, in _execute_context
+    cursor, statement, parameters, context
+  File "/home/etudiant/projetsPython/petits_gazouillis/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) table utilisateur has no column named jeton
+[SQL: INSERT INTO utilisateur (nom, courriel, mot_de_passe_hash, avatar, a_propos_de_moi, dernier_acces, jeton, jeton_expiration) VALUES (?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: ('Harry', 'h.potter@info.cgg', 'pbkdf2:sha256:150000$DTi5ZflW$b628ee2644024a73a966f39ddd25a4858e825796f9db3685616e23dd65d05b0e', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAIAAABMXPacAAArWHpUWHRSYXcgcHJvZmlsZSB0eXBlIGV4aWYAAHjarZxpkiQpcIX/cwodgX05Djhgphvo+PoemV2zSjM ... (51068 characters truncated) ... VVIkWnr8qCyWiWEkV+OWLpQD9DTayROjxIz95X1lO04WOnGUpslF2qe79KFdXtva3d4HE4KFJCGWkrLF5MPtkrp3n31uti+UVV1n52R/s9NfOuBb6R5cuvRMVFrZsJ5O5zgAAAABJRU5ErkJggg==', 'Je suis Harry', '2020-10-27 00:34:24.216090', None, None)]
+(Background on this error at: http://sqlalche.me/e/13/e3q8)

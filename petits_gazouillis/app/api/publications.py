@@ -1,10 +1,12 @@
 from app.api import bp
+from app import db
 from app.modeles import Publication, Utilisateur
 from flask import jsonify
 from flask import request
 from flask_login import login_required
 from app.api.auth import token_auth
 from flask_cors import cross_origin
+from flask_login import current_user
 
 @bp.route('/publications2', methods=['GET'])
 def get_publications2():
@@ -26,13 +28,6 @@ def get_publications():
     return jsonify(data)
 
 
-
-
-
-@bp.route('/publications',methods=['POST'])
-def creer_publication():
-    return "creer"
-
 @bp.route('/publications/<int:id>',methods=['PUT'])
 def modifier_publication(id):
     return "modifier"
@@ -40,3 +35,15 @@ def modifier_publication(id):
 @bp.route('/publications/<int:id>',methods=['DELETE'])
 def supprimer_publication(id):
     return "supprimer"
+
+
+
+@bp.route('/publicationsCreer/<id>', methods=['POST'])
+@cross_origin()
+@token_auth.login_required
+def cree_publication(id):
+    current_user = token_auth.current_user()
+    publication = Publication(corps=id.replace("\"",""), auteur=current_user)
+    db.session.add(publication)
+    db.session.commit()
+    return ("OK")

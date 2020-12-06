@@ -46,7 +46,6 @@ export default class Login extends React.Component{
           return(
               <View style={Projet.styles.container}>
                   <Image source={logo} style={Projet.styles.logo}/>
-                  {/*<Image source={anonyme} style={Projet.styles.avatar}/>*/}
                   <Text style={Projet.styles.flash} >Flash : {this.state.flash}</Text><br />
 
                   <Formik

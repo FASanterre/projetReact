@@ -5,15 +5,30 @@ export const styles = StyleSheet.create({
   container: {
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#6e4256",
+    backgroundColor: "#2326E6",
     margin:10,
     width:1080,
     height:1920
   },
+  containerAccueil:{
+    backgroundColor: "#2326E6",
+    margin:10,
+    width:1080,
+    height:1920
+  },
+  publications:{
+    backgroundColor:"white",
+    display: "flex",
+    flexDirection: "row",
+    flexWrap:"wrap",
+    textAlignVertical:"center",
+    margin:5
+  },
   flexbox:{
     display: "flex",
     flexDirection: "row",
-    flexWrap:"wrap"
+    flexWrap:"wrap",
+    textAlignVertical:"center"
   },
   logo:{
     width:600,
@@ -23,16 +38,23 @@ export const styles = StyleSheet.create({
   avatar:{
     width:256,
     height:256,
-    margin:50
+    borderRadius:"50%"
   },
   miniAvatar:{
     width:100,
     height:100,
-    margin:20
+    margin:20,
+    borderRadius: "50%"
+  },
+  miniAvatarListe:{
+    width:80,
+    height:80,
+    margin:8,
+    borderRadius: "50%"
   },
   flash:{
     fontSize:50,
-    color:"black"
+    color:"white"
   },
   inputView:{
     width:"80%",
@@ -58,6 +80,19 @@ export const styles = StyleSheet.create({
     marginTop:10,
     justifyContent:"center"
   },
+  quitButton:{
+    width:"50%",
+    backgroundColor:"#00a0d3",
+    borderRadius:25,
+    height:80,
+    alignItems:"center",
+    marginTop:40,
+    marginTop:10,
+    justifyContent:"center",
+    fontSize:50,
+    padding: 20,
+    marginLeft: 240
+  },
   loginText:{
     fontSize:50
   },
@@ -74,10 +109,45 @@ export const styles = StyleSheet.create({
     color:"red"
   },
   scrollView:{
-    maxHeight: 600,
-    height:600,
-    width:920,
-    maxWidth: 920
+    maxHeight: 650,
+    height:650,
+    width:1000,
+    maxWidth: 950
+  },
+  txtPublications:{
+    fontSize: 26,
+    color: "blue",
+    paddingTop: 50
+  },
+  nomPublication:{
+    fontSize: 26,
+    color: "#1BD6D9",
+    paddingTop: 50
+  },
+  txtScrollView:{
+    fontSize: 26,
+    color: "grey",
+    paddingTop: 50
+  },
+  txtPage:{
+    fontSize:26,
+    color:"white",
+    textAlign:"center",
+    paddingTop: 10
+  },
+  btnPage:{
+    borderRadius:25,
+    backgroundColor:"#00a0d3",
+    display: "inline-block",
+    padding: 5,
+    height:50
+  },
+  btnActualiser:{
+    borderRadius:25,
+    backgroundColor:"#00a0d3",
+    padding: 5,
+    height:50,
+    width:150
   }
 })
 
@@ -192,18 +262,80 @@ export async function chargerUtilisateur(thisRef){
     }
   }
 
+  export async function suivreUtilisateur(thisRef, id){
+    if(thisRef.props.jeton != ""){
+      
+      thisRef.state.liste.push(id)
+
+      var url = "http://127.0.0.1:5000/api/suivre/" + id
+      var obj={
+        method : 'POST',
+        headers : {
+          Accept : 'application/json',
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + thisRef.props.jeton
+        },
+      };
+      var reponse = getJson(url,obj, thisRef, "Utilisateur suivi", "suivre")
+    }
+    else{
+      this.setState({flash:"Impossible de suivre l'utilisateur selectionné"})
+      alert("NON")
+    }
+  }
+
+  export async function ne_plus_suivre(thisRef, id){
+    if(thisRef.props.jeton != ""){
+      for(var i = 0; i < thisRef.state.liste.length; i++){
+        if(thisRef.state.liste[i] == id){
+          thisRef.state.liste.splice(i,1)
+        }
+      }
+
+
+      var url = "http://127.0.0.1:5000/api/ne_plus_suivre/" + id
+      var obj={
+        method : 'POST',
+        headers : {
+          Accept : 'application/json',
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + thisRef.props.jeton
+        },
+      };
+      var reponse = await getJson(url,obj, thisRef, "Utilisateur n'est plus suivi", "suivre")
+    }
+    else{
+      this.setState({flash:"Impossible de suivre l'utilisateur selectionné"})
+    }
+  }
+
+  export async function creerPublication(thisRef, id){
+    if(thisRef.props.jeton != "" && id.trim() != ""){
+      alert("YES")
+      var url = "http://127.0.0.1:5000/api/publicationsCreer/\"" + id + "\""
+      var obj={
+        method : 'POST',
+        headers : {
+          Accept : 'application/json',
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + thisRef.props.jeton
+        },
+      };
+      var reponse = await getJson(url,obj, thisRef, "Ajout de la publication", "suivre")
+    }
+    else{
+      this.setState({flash:"Ajout non réussi"})
+    }
+  }
+
   export async function getJson(url, obj, thisRef, message, etat){
     try{
-      thisRef.setState({enChargement: true})
-      thisRef.setState({flash:""})
-      thisRef.setState({[etat] :etiquettes.ENCHARGEMENT})
+      thisRef.setState({flash:"",enChargement: true, [etat] :etiquettes.ENCHARGEMENT})
       let reponse = await fetch(url, obj)
       let reponseJson = await reponse.json()
       thisRef.setState({enChargement :false})
       if(typeof reponseJson.erreur === 'undefined'){
-        thisRef.setState({[etat] :reponseJson[etat]})
-        thisRef.setState({flash :message})
-        //alert(reponseJson[etat] + " " + etat)
+        thisRef.setState({[etat] :reponseJson[etat], flash :message})
       }
       else {
         thisRef.setState({flash: reponseJson.erreur})
