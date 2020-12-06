@@ -8,34 +8,32 @@ import * as Projet from '../JS/Projet.js'
 export default class ListeUtilisateurs extends React.Component{
     constructor(props){
         super(props)
-        this.state={suivre:"", liste:[], start:0}
+        this.state={suivre:"", start:0}
     }
 
 
     render(){
-        var listUser = []
-        var listCurrentUser = []
         if(this.props.utilisateurs != null && this.props.utilisateurs != Projet.etiquettes.ENCHARGEMENT){
-            listUser.push(this.props.utilisateurs)
-            listCurrentUser.push(this.props.utilisateur)
             if(this.state.start == 0){
+                Projet.listUser.push(this.props.utilisateurs)
+                Projet.listCurrentUser.push(this.props.utilisateur)
                 alert("Rentre une fois")
-                listCurrentUser[0].partisans.forEach(element => {
-                    this.state.liste.push(element)
+                Projet.listCurrentUser[0].partisans.forEach(element => {
+                    Projet.listPartisans.push(element)
                 });
                 this.setState({start:1})
             }
             return(
                 <View>
-                    <Text style={Projet.styles.txtScrollView}>Non partisans ({listUser[0].items.length - this.state.liste.length - 1})</Text>
+                    <Text style={Projet.styles.txtScrollView}>Non partisans ({Projet.listUser[0].items.length - Projet.listPartisans.length - 1})</Text>
                     <br></br>
                     <View style={Projet.styles.flexbox}>
-                        {listUser.map(util => util.items.map(info => this.state.liste.includes(info.id) || listCurrentUser[0].id == info.id ? null : <View style={Projet.styles.flexbox}><TouchableOpacity onPress={() => Projet.suivreUtilisateur(this,info.id)}><Image  style={Projet.styles.miniAvatarListe} source={info.avatar} /></TouchableOpacity></View> ))}
+                        {Projet.listUser.map(util => util.items.map(info => Projet.listPartisans.includes(info.id) || Projet.listCurrentUser[0].id == info.id ? null : <View style={Projet.styles.flexbox}><TouchableOpacity onPress={() => Projet.suivreUtilisateur(this,info.id)}><Image  style={Projet.styles.miniAvatarListe} source={info.avatar} /></TouchableOpacity></View> ))}
                     </View>
-                    <Text style={Projet.styles.txtScrollView}>Partisans ({this.state.liste.length})</Text>
+                    <Text style={Projet.styles.txtScrollView}>Partisans ({Projet.listPartisans.length})</Text>
                     <br></br>
                     <View style={Projet.styles.flexbox}>
-                        {listUser.map(util => util.items.map(info => this.state.liste.includes(info.id) ? <View style={Projet.styles.flexbox}><TouchableOpacity onPress={() => Projet.ne_plus_suivre(this,info.id)}><Image  style={Projet.styles.miniAvatarListe} source={info.avatar} /></TouchableOpacity></View> : null ))}
+                        {Projet.listUser.map(util => util.items.map(info => Projet.listPartisans.includes(info.id) ? <View style={Projet.styles.flexbox}><TouchableOpacity onPress={() => Projet.ne_plus_suivre(this,info.id)}><Image  style={Projet.styles.miniAvatarListe} source={info.avatar} /></TouchableOpacity></View> : null ))}
                     </View>
                     <br></br>
                 </View>

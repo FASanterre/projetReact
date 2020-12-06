@@ -148,12 +148,32 @@ export const styles = StyleSheet.create({
     padding: 5,
     height:50,
     width:150
+  },
+  btnSocketGreen:{
+    borderRadius:25,
+    backgroundColor:"green",
+    display: "inline-block",
+    padding: 5,
+    height:50,
+    width:"80%"
+  },
+  btnSocketRed:{
+    borderRadius:25,
+    backgroundColor:"red",
+    display: "inline-block",
+    padding: 5,
+    height:50,
+    width:"80%"
   }
 })
 
 export const etiquettes={
   ENCHARGEMENT: "CHARGEMENT"
 }
+
+export var listUser = []
+export var listCurrentUser = []
+export var listPartisans = []
 
 export function setStateParent(etat, valeur){
   this.setState({[etat]: valeur})
@@ -265,7 +285,7 @@ export async function chargerUtilisateur(thisRef){
   export async function suivreUtilisateur(thisRef, id){
     if(thisRef.props.jeton != ""){
       
-      thisRef.state.liste.push(id)
+      this.listPartisans.push(id)
 
       var url = "http://127.0.0.1:5000/api/suivre/" + id
       var obj={
@@ -286,9 +306,9 @@ export async function chargerUtilisateur(thisRef){
 
   export async function ne_plus_suivre(thisRef, id){
     if(thisRef.props.jeton != ""){
-      for(var i = 0; i < thisRef.state.liste.length; i++){
-        if(thisRef.state.liste[i] == id){
-          thisRef.state.liste.splice(i,1)
+      for(var i = 0; i < this.listPartisans.length; i++){
+        if(this.listPartisans[i] == id){
+          this.listPartisans.splice(i,1)
         }
       }
 

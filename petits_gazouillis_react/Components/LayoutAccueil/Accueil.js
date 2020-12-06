@@ -26,9 +26,11 @@ export default class Accueil extends React.Component{
         this.chargerToutesLesPublications(this, this.state.page)
         this.pageSuivante = Projet.pageSuivante.bind(this)
         this.pagePrecedente = Projet.pagePrecedente.bind(this)
-        this.setStateParent = this.props.setStateParent
+        this.handler = this.handler.bind(this)
     }
-
+    handler(){
+        this.chargerToutesLesPublications(this,this.state.page)
+    }
 
     render(){
         return(
@@ -46,7 +48,7 @@ export default class Accueil extends React.Component{
                     {this.state.utilisateurs == null && this.state.utilisateurs != Projet.etiquettes.ENCHARGEMENT ? (<ActivityIndicator />) : (
                             <ListeUtilisateurs  utilisateurs={this.state.utilisateurs} utilisateur={this.state.utilisateur} jeton={this.state.jeton} />
                     )}
-                    <Actualiser utilisateurs={this.state.utilisateurs} setStateParent={this.state.setStateParent}/>
+                    <Actualiser utilisateurs={this.state.utilisateurs} setStateParent={this.state.setStateParent} action={this.handler} />
                     <View style={Projet.styles.flexbox}>
                         <Text style={Projet.styles.txtPage}>Filtre :</Text>
                         <TouchableOpacity onPress={() => Projet.changerFiltre(this)} style={Projet.styles.btnPage}>
@@ -57,7 +59,8 @@ export default class Accueil extends React.Component{
                         </TouchableOpacity>
                     </View>
                     {this.state.publications == null && this.state.publications != Projet.etiquettes.ENCHARGEMENT  ? (<ActivityIndicator />) : (
-                        this.state.publications != null && this.state.publications !=Projet.etiquettes.ENCHARGEMENT && this.state.filtre == "tout" ? <View style={Projet.styles.flexbox}>
+                        this.state.publications != Projet.etiquettes.ENCHARGEMENT ?
+                        <View style={Projet.styles.flexbox}>
                         <Text style={Projet.styles.txtPage}>Page {this.state.publications._meta.page} de {this.state.publications._meta.total_pages}</Text><br></br>
                         <TouchableOpacity style={Projet.styles.btnPage}>
                             {this.state.publications._links.precedent == null  ? 
@@ -69,10 +72,10 @@ export default class Accueil extends React.Component{
                             <Text style={Projet.styles.txtPage}>Suivant</Text> 
                             : <Text style={Projet.styles.txtPage} onPress={() => this.pageSuivante(this)}>Suivant</Text>}
                         </TouchableOpacity><br></br>
-                    </View> : <Text><br></br></Text>
+                    </View> : (<ActivityIndicator />)
                     )}
                     <View>
-                        <TouchableOpacity style={Projet.styles.btnActualiser}>
+                        <TouchableOpacity style={Projet.styles.btnActualiser} onPress={() => this.chargerToutesLesPublications(this, this.state.page)}>
                             <Text style={Projet.styles.txtPage} >Actualiser</Text>
                         </TouchableOpacity>
                     </View>
@@ -80,16 +83,18 @@ export default class Accueil extends React.Component{
                     <ScrollView style={Projet.styles.scrollView}>
                         
                         {this.state.publications == null && this.state.publications != Projet.etiquettes.ENCHARGEMENT ? (<ActivityIndicator />) : (
-                            this.state.filtre == "tout" ? <ListePublications publications={this.state.publications} utilisateurs={this.state.utilisateurs} filtre={this.state.filtre}/>
-                            : this.state.filtre == "miennes" ? <ListePublications publications={this.state.utilisateur.publications} utilisateurs={this.state.utilisateurs} filtre={this.state.filtre} utilisateur={this.state.utilisateur}/>
-                            : <ListePublications publications={this.state.utilisateur.publications} utilisateurs={this.state.utilisateurs} filtre={this.state.filtre}/>
+                        <ListePublications publications={this.state.publications} utilisateurs={this.state.utilisateurs} filtre={this.state.filtre} utilisateur={this.state.utilisateur}/>
                         )}
                     </ScrollView>
                     <TouchableOpacity style={Projet.styles.quitButton}>
                         <Text style={Projet.styles.txtPage} onPress={() => this.props.quitterSession()}>Quitter la session</Text>
                     </TouchableOpacity>
                 </View>
+                {/*this.state.filtre == "tout" ? <ListePublications publications={this.state.utilisateur.publications} utilisateurs={this.state.utilisateurs} filtre={this.state.filtre} utilisateur={this.state.utilisateur}/>
+                            : this.state.filtre == "miennes" ? <ListePublications publications={this.state.utilisateur.publications} utilisateurs={this.state.utilisateurs} filtre={this.state.filtre} utilisateur={this.state.utilisateur}/>
+                        : <ListePublications publications={this.state.publications} utilisateurs={this.state.utilisateurs} filtre={this.state.filtre}/>*/}
             </View>
+            
             
         )
     }

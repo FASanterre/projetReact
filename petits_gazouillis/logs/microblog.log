@@ -69,3 +69,4 @@ Traceback (most recent call last):
 TypeError: 'dict' object is not callable
 2020-12-06 14:56:18,348 INFO: Démarrage de petits Gazouillis [in /home/etudiant/projets/projetReact/petits_gazouillis/app/__init__.py:52]
 2020-12-06 15:06:49,671 INFO: Démarrage de petits Gazouillis [in /home/etudiant/projets/projetReact/petits_gazouillis/app/__init__.py:52]
+2020-12-06 15:10:04,110 INFO: Démarrage de petits Gazouillis [in /home/etudiant/projets/projetFinalReact/petits_gazouillis/app/__init__.py:52]

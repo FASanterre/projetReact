@@ -20,7 +20,7 @@ export default class Actualiser extends React.Component{
 
     actualiser(){
         this.setState({nouveau:false, nb_nouvelles:0, message:"aucun nouveau message"})
-        this.props.setStateParent("publications", Projet.etiquettes.ENCHARGEMENT)
+        this.props.action()
     }
 
     initialiser(){
@@ -68,16 +68,16 @@ export default class Actualiser extends React.Component{
         }
         return(
             <View>
-                {this.state.nouveau == false ? (<TouchableOpacity disabled={true} onPress={() => {
+                {this.state.nouveau == false ? (<TouchableOpacity style={Projet.styles.btnSocketGreen} disabled={true} onPress={() => {
                         this.actualiser()
                     }}>
-                    <Text >Texte qui devrais etre disable</Text>
+                    <Text  style={Projet.styles.txtPage}>{this.state.message}</Text>
                 </TouchableOpacity>) : (
-                    <TouchableOpacity onPress={() => {
+                    <TouchableOpacity style={Projet.styles.btnSocketRed} onPress={() => {
                         this.actualiser()
                     }}>
                         {/*<Image style={Projet.styles.miniAvatar} source={listUser[id - 1].avatar}/>*/}
-                        <Text >{this.state.message} ({this.state.nb_nouvelles})</Text>
+                        <Text  style={Projet.styles.txtPage}>{this.state.message} ({this.state.nb_nouvelles})</Text>
                     </TouchableOpacity>
                 )}
             </View>
