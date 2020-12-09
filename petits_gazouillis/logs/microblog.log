@@ -71,3 +71,4 @@ TypeError: 'dict' object is not callable
 2020-12-06 15:06:49,671 INFO: Démarrage de petits Gazouillis [in /home/etudiant/projets/projetReact/petits_gazouillis/app/__init__.py:52]
 2020-12-06 15:10:04,110 INFO: Démarrage de petits Gazouillis [in /home/etudiant/projets/projetFinalReact/petits_gazouillis/app/__init__.py:52]
 2020-12-06 16:34:18,007 INFO: Démarrage de petits Gazouillis [in /home/etudiant/projets/projetFinalReact/petits_gazouillis/app/__init__.py:52]
+2020-12-09 10:45:10,049 INFO: Démarrage de petits Gazouillis [in /home/etudiant/projets/projetFinalReact/petits_gazouillis/app/__init__.py:52]

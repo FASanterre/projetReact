@@ -27,6 +27,7 @@ export default class Accueil extends React.Component{
         this.pageSuivante = Projet.pageSuivante.bind(this)
         this.pagePrecedente = Projet.pagePrecedente.bind(this)
         this.handler = this.handler.bind(this)
+        
     }
     handler(){
         this.chargerToutesLesPublications(this,this.state.page)

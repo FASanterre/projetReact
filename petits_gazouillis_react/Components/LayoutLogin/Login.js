@@ -20,6 +20,7 @@ export default class Login extends React.Component{
         super(props)
         this.state={flash:"", jeton:"", utilisateur:null};
         this.enChargement = false
+        Projet.resetList();
     }
 
     componentDidMount(){

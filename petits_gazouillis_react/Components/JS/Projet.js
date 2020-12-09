@@ -179,6 +179,13 @@ export function setStateParent(etat, valeur){
   this.setState({[etat]: valeur})
 }
 
+
+export function resetList(){
+  listUser = []
+  listCurrentUser = []
+  listPartisans = []
+}
+
 export function afficherStateParent(etat){
   alert("afficher parent etat:" + etat + " valeur:" + this.state[etat])
 }
